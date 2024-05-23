@@ -38,7 +38,7 @@ def home():
     return render_template('home.html',suggestions=suggestions)
 
 
-@app.route("/recommend",methods=["POST"])
+
 def recommend():
     # getting data from AJAX request
     title = request.form['title']
