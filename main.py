@@ -33,7 +33,6 @@ def get_suggestions():
     return list(data['movie_title'].str.capitalize())
 
 
-@app.route("/")
 @app.route("/home")
 def home():
     suggestions = get_suggestions()
