@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from flask import Flask, render_template, request
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
@@ -32,13 +33,16 @@ def get_suggestions():
     data = pd.read_csv('main_data.csv')
     return list(data['movie_title'].str.capitalize())
 
+app = Flask(__name__)
 
+@app.route("/")
+@app.route("/home")
 def home():
     suggestions = get_suggestions()
     return render_template('home.html',suggestions=suggestions)
 
 
-
+@app.route("/recommend",methods=["POST"])
 def recommend():
     # getting data from AJAX request
     title = request.form['title']
