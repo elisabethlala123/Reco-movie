@@ -32,7 +32,6 @@ def get_suggestions():
     data = pd.read_csv('main_data.csv')
     return list(data['movie_title'].str.capitalize())
 
-app = Flask(__name__)
 
 @app.route("/")
 @app.route("/home")
