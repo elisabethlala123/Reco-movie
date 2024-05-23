@@ -15,4 +15,3 @@ lxml
 urllib3
 requests
 pickleshare==0.7.5
-streamlit==1.34.0
